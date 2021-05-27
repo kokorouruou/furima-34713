@@ -22,3 +22,70 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## usersテーブル
+
+｜Column                     |Type    |Options        |
+｜---------------------------|--------|---------------|
+｜nickname                   |string  |null: false    |
+｜email                      |string  |null: false    |
+｜encrypted_password         |string  |null: false    |
+
+### Association
+
+- has_many : items
+- has_many : comments
+- has_many : purchase
+- has_one  : shipping address
+
+## itemsテーブル
+
+｜Column           |Type    |Options        |
+｜-----------------|--------|---------------|
+｜title            |string  |null: false    |
+｜text             |string  |null: false    |
+｜image            |string  |null: false    |
+｜price            |string  |null: false    |
+
+### Association
+
+- belongs_to :user
+- has_many   :comments
+- has_one    :purchase
+
+## commentsテーブル
+
+|Column           |Type    |Options        |
+|text             |string  |null: false    |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+## purchasesテーブル
+|Column           |Type    |Options        |
+|buy              |string  |null: false    |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+## shipping addressesテーブル
+|Column                   |Type    |Options        |
+|credit information       |string  |null: false    |
+|address                  |string  |null: false    |
+
+### Association
+
+- belongs_to :user
+- belongs_to :purchase
+
+
+
+
+
+
+
