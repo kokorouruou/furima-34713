@@ -31,6 +31,8 @@ Things you may want to cover:
 ｜nickname                   |string  |null: false    |
 ｜email                      |string  |null: false    |
 ｜encrypted_password         |string  |null: false    |
+｜name                       |string  |null: false    |
+｜birthday                   |string  |null: false    |
 
 ### Association
 
@@ -41,12 +43,20 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-｜Column           |Type    |Options        |
-｜-----------------|--------|---------------|
-｜title            |string  |null: false    |
-｜text             |string  |null: false    |
-｜image            |string  |null: false    |
-｜price            |string  |null: false    |
+｜Column               |Type    |Options        |
+｜---------------------|--------|---------------|
+｜title                |string  |null: false    |
+｜text                 |string  |null: false    |
+｜image                |string  |null: false    |
+｜price                |string  |null: false    |
+｜category             |string  |null: false    |
+｜product_condition    |string  |null: false    |
+｜delivery_charge      |string  |null: false    |
+｜shipping_area        |string  |null: false    |
+｜day_to_ship          |string  |null: false    |
+
+
+
 
 ### Association
 
@@ -65,8 +75,9 @@ Things you may want to cover:
 - belongs_to :item
 
 ## purchasesテーブル
-|Column           |Type    |Options        |
-|buy              |string  |null: false    |
+|Column           |Type        |Options            |
+|item             |references  |foreign_key: true  |
+|user             |references  |foreign_key: true  |
 
 ### Association
 
