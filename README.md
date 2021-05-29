@@ -96,14 +96,15 @@ Things you may want to cover:
 - has_one : shipping_address
 
 ## shipping addressesテーブル
-|Column                   |Type    |Options                        |
-|-------------------------|--------|-------------------------------|
-|postal_code              |string  |null: false                    |
-|prefectures_id           |integer |null: false, foreign_key: true |
-|municipality             |string  |null: false                    |
-|address                  |string  |null: false                    |
-|building_name            |string  |                               |
-|phone_number             |string  |null: false                    |
+|Column                   |Type       |Options                        |
+|-------------------------|-----------|-------------------------------|
+|postal_code              |string     |null: false                    |
+|prefectures_id           |integer    |null: false, foreign_key: true |
+|municipality             |string     |null: false                    |
+|address                  |string     |null: false                    |
+|building_name            |string     |                               |
+|phone_number             |string     |null: false                    |
+|purchase                 |references |foreign_key: true              |
 
 
 ### Association
