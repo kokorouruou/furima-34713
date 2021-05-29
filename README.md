@@ -41,7 +41,7 @@ Things you may want to cover:
 
 - has_many : items
 - has_many : comments
-- has_many : purchase
+- has_many : purchases
 
 
 ## itemsテーブル
@@ -49,13 +49,13 @@ Things you may want to cover:
 ｜Column               |Type    |Options        |
 ｜---------------------|--------|---------------|
 ｜title                |string  |null: false    |
-｜text                 |string  |null: false    |
-｜price                |string  |null: false    |
-｜category             |integer |null: false    |
-｜product_condition    |integer |null: false    |
-｜delivery_charge      |integer |null: false    |
-｜shipping_area        |integer |null: false    |
-｜day_to_ship          |integer |null: false    |
+｜text                 |text    |null: false    |
+｜price                |integer |null: false    |
+｜category_id          |integer |null: false    |
+｜product_condition_id |integer |null: false    |
+｜delivery_charge_id   |integer |null: false    |
+｜shipping_area_id     |integer |null: false    |
+｜day_to_ship_id       |integer |null: false    |
 
 
 
@@ -65,11 +65,11 @@ Things you may want to cover:
 - belongs_to :user
 - has_many   :comments
 - has_one    :purchase
-- belongs_to_active_hash :category
-- belongs_to_active_hash :product_condition
-- belongs_to_active_hash :delivery_charge
-- belongs_to_active_hash :shipping_area
-- belongs_to_active_hash :day_to_ship
+- belongs_to_active_hash :category_id
+- belongs_to_active_hash :product_condition_id
+- belongs_to_active_hash :delivery_charge_id
+- belongs_to_active_hash :shipping_area_id
+- belongs_to_active_hash :day_to_ship_id
 
 ## commentsテーブル
 
@@ -92,12 +92,13 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
+- has_one : shipping_address
 
 ## shipping addressesテーブル
 |Column                   |Type    |Options                        |
 |-------------------------|--------|-------------------------------|
 |postal_code              |string  |null: false                    |
-|prefectures              |integer |null: false, foreign_key: true |
+|prefectures_id           |integer |null: false, foreign_key: true |
 |municipality             |string  |null: false                    |
 |address                  |string  |null: false                    |
 |building_name            |string  |                               |
@@ -107,6 +108,7 @@ Things you may want to cover:
 ### Association
 
 belongs_to :purchase
+belongs_to_active_hash :prefectures_id
 
 
 
