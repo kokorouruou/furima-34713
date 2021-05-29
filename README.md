@@ -46,16 +46,17 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-｜Column               |Type    |Options        |
-｜---------------------|--------|---------------|
-｜title                |string  |null: false    |
-｜text                 |text    |null: false    |
-｜price                |integer |null: false    |
-｜category_id          |integer |null: false    |
-｜product_condition_id |integer |null: false    |
-｜delivery_charge_id   |integer |null: false    |
-｜shipping_area_id     |integer |null: false    |
-｜day_to_ship_id       |integer |null: false    |
+｜Column               |Type        |Options            |
+｜---------------------|------------|-------------------|
+｜title                |string      |null: false        |
+｜text                 |text        |null: false        |
+｜price                |integer     |null: false        |
+｜category_id          |integer     |null: false        |
+｜product_condition_id |integer     |null: false        |
+｜delivery_charge_id   |integer     |null: false        |
+｜shipping_area_id     |integer     |null: false        |
+｜day_to_ship_id       |integer     |null: false        |
+｜user                 |references  |foreign_key: true  |
 
 
 
