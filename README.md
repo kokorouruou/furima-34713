@@ -54,7 +54,7 @@ Things you may want to cover:
 ｜category_id          |integer     |null: false        |
 ｜product_condition_id |integer     |null: false        |
 ｜delivery_charge_id   |integer     |null: false        |
-｜prefectures_id       |integer     |null: false        |
+｜prefecture_id        |integer     |null: false        |
 ｜day_to_ship_id       |integer     |null: false        |
 ｜user                 |references  |foreign_key: true  |
 
@@ -66,11 +66,11 @@ Things you may want to cover:
 - belongs_to :user
 - has_many   :comments
 - has_one    :purchase
-- belongs_to_active_hash :category_id
-- belongs_to_active_hash :product_condition_id
-- belongs_to_active_hash :delivery_charge_id
-- belongs_to_active_hash :prefectures_id
-- belongs_to_active_hash :day_to_ship_id
+- belongs_to_active_hash :category
+- belongs_to_active_hash :product_condition
+- belongs_to_active_hash :delivery_charge
+- belongs_to_active_hash :prefectures
+- belongs_to_active_hash :day_to_ship
 
 ## commentsテーブル
 
@@ -99,7 +99,7 @@ Things you may want to cover:
 |Column                   |Type       |Options                        |
 |-------------------------|-----------|-------------------------------|
 |postal_code              |string     |null: false                    |
-|prefectures_id           |integer    |null: false                    |
+|prefecture_id            |integer    |null: false                    |
 |municipality             |string     |null: false                    |
 |address                  |string     |null: false                    |
 |building_name            |string     |                               |
@@ -110,7 +110,7 @@ Things you may want to cover:
 ### Association
 
 belongs_to :purchase
-belongs_to_active_hash :prefectures_id
+belongs_to_active_hash :prefecture
 
 
 
