@@ -43,7 +43,6 @@ Things you may want to cover:
 - has_many : comments
 - has_many : purchases
 
-
 ## itemsテーブル
 
 ｜Column               |Type        |Options            |
