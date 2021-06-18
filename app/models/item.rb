@@ -9,7 +9,7 @@ class Item < ApplicationRecord
 
   has_one_attached :image
   
-  validates :title, :text, :price, :image, :user_id, presence: true
+  validates :title, :text, :price, :image, presence: true
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :product_condition_id
