@@ -53,7 +53,6 @@ RSpec.describe User, type: :model do
       it 'passwordが半角英字だけでは登録できないこと' do
         @user.password = 'aaaaaa'
         @user.valid?
-        binding.pry
         expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
       end
       it 'パスワードは、確認用を含めて2回入力すること' do
