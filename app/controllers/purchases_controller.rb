@@ -1,8 +1,15 @@
 class PurchasesController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, only: :index
 
   def index
     @purchase_address = PurchaseAddress.new
+    @item = Item.find(params[:item_id])
+    if current_user == @item.user
+        redirect_to root_path
+    end
+    if current_user == @item.purchase.user
+        redirect_to root_path
+    end
   end
 
   def create
@@ -31,5 +38,7 @@ class PurchasesController < ApplicationController
         currency: 'jpy'
       )
   end
+
+  
 
 end
