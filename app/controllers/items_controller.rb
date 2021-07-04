@@ -36,6 +36,9 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+    if @item.purchase
+      redirect_to root_path
+    end
   end 
 
   def destroy
