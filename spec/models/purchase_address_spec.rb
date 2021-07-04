@@ -34,6 +34,11 @@ RSpec.describe PurchaseAddress, type: :model do
           @purchase_address.valid?
           expect(@purchase_address.errors.full_messages).to include("Prefecture can't be blank")
         end
+        it 'cityが空だと保存できないこと' do
+          @purchase_address.city = ""
+          @purchase_address.valid?
+          expect(@purchase_address.errors.full_messages).to include("City can't be blank")
+        end
         it 'house_numberは空だと保存できないこと' do
           @purchase_address.house_number = ''
           @purchase_address.valid?
@@ -43,18 +48,36 @@ RSpec.describe PurchaseAddress, type: :model do
           @purchase_address.phone_number = ''
           @purchase_address.valid?
           expect(@purchase_address.errors.full_messages).to include("Phone number can't be blank")
-
         end
         it 'phone_numberは半角数字のみでないと保存できないこと' do
           @purchase_address.phone_number = '０９０１２３４５６７８'
           @purchase_address.valid?
           expect(@purchase_address.errors.full_messages).to include('Phone number input only number')
         end
-
+        it 'phone_numberは半角英数字混合だと保存できないこと' do
+        @purchase_address.phone_number = '090aaaabbbb'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('Phone number input only number')
+        end
+        it 'phone_numberは12桁以上だと保存できないこと' do
+          @purchase_address.phone_number = '090123456789'
+          @purchase_address.valid?
+          expect(@purchase_address.errors.full_messages).to include('Phone number input only number')
+          end
         it "tokenが空では登録できないこと" do
           @purchase_address.token = nil
           @purchase_address.valid?
           expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+        end
+          it 'user_idが空では保存できないこと' do
+          @purchase_address.user_id = nil
+          @purchase_address.valid?
+          expect(@purchase_address.errors.full_messages).to include("User can't be blank")
+        end
+        it 'item_idが空では保存できないこと' do
+          @purchase_address.item_id = nil
+          @purchase_address.valid?
+          expect(@purchase_address.errors.full_messages).to include("Item can't be blank")
         end
       end
   end
