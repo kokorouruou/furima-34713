@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_action :set_item, only: [:update, :show, :edit, :destroy]
   before_action :move_to_index, except: [:index, :show, :new, :create]
+  before_action :set_item_purchase, only: [:edit, :update]
 
 
   def index
@@ -38,10 +39,6 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     redirect_to root_path
-
-
-
-    
   end
 
   private
@@ -58,6 +55,12 @@ class ItemsController < ApplicationController
   def move_to_index
       unless current_user.id == @item.user_id
         redirect_to action: :index
+    end
+  end
+
+  def set_item_purchase
+    if @item.purchase
+      redirect_to root_path
     end
   end
 end

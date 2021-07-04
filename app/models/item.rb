@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_charge
   belongs_to :prefecture
   belongs_to :day_to_ship
+  has_one    :purchase
 
 
   has_one_attached :image
